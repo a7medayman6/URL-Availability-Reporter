@@ -1,0 +1,5 @@
+@BASE_URL = http://localhost:3000/api/
+
+@PATH = test/
+
+GET {{BASE_URL}}{{PATH}} 

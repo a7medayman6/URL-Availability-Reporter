@@ -1,0 +1,9 @@
+@BASE_URL = http://localhost:3000/api
+
+@PATH = /auth
+
+GET {{BASE_URL}}{{PATH}}/login
+
+### 
+
+GET {{BASE_URL}}{{PATH}}/register
