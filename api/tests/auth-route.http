@@ -7,3 +7,4 @@ GET {{BASE_URL}}{{PATH}}/login
 ### 
 
 GET {{BASE_URL}}{{PATH}}/register
+
