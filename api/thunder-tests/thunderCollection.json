@@ -13,6 +13,12 @@
     "created": "2023-03-02T21:02:12.090Z",
     "sortNum": 20000,
     "folders": [],
-    "settings": {}
+    "settings": {
+      "runOptions": {
+        "delay": 4,
+        "iterations": 1,
+        "dataFilePath": ""
+      }
+    }
   }
 ]
