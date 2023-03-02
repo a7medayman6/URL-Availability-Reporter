@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "43f2c4e2-e968-47ce-883c-1fface5d901f",
+    "colName": "Auth",
+    "created": "2023-03-02T20:57:59.453Z",
+    "sortNum": 10000,
+    "folders": [],
+    "settings": {}
+  },
+  {
+    "_id": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "colName": "Checks",
+    "created": "2023-03-02T21:02:12.090Z",
+    "sortNum": 20000,
+    "folders": [],
+    "settings": {}
+  }
+]

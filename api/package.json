@@ -4,7 +4,7 @@
   "description": "An api for url availability reports, users can register, add url checks, and recieve information and statistics about the url availability, up/down times, status, and response times. ",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "server": "nodemon --ignore ./thunder-tests/ index.js"
   },
   "author": "Ahmed Ayman",
   "license": "ISC",

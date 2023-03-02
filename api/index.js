@@ -24,6 +24,8 @@ app.use(morgan(':method :url :status :response-time ms -  :body - :req[content-l
 // routes
 app.use('/api/v1/test', require('./routes/test'))
 app.use('/api/v1/auth', require('./routes/auth'))
+app.use('/api/v1/checks', require('./routes/check'))
+
 
 const PORT = process.env.PORT || 3000;
 

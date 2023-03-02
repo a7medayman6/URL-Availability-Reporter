@@ -10,7 +10,11 @@ const userSchema = new mongoose.Schema(
         verified:   { type: Boolean }, 
     },
     { 
-        collation: 'users' 
+        collation:  {            
+                        locale: 'en_US',
+                        caseLevel: true,
+                        strength: 2
+                    } 
     },
     {
         timestamps: true,

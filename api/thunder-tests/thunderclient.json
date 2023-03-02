@@ -1,0 +1,361 @@
+[
+  {
+    "_id": "688899f8-c5f0-42c7-a804-983e0ec77ffc",
+    "colId": "43f2c4e2-e968-47ce-883c-1fface5d901f",
+    "containerId": "",
+    "name": "Register",
+    "url": "http://localhost:3000/api/v1/auth/register/",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-03-02T20:58:15.534Z",
+    "modified": "2023-03-02T22:12:21.220Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Ahmed\",\n    \"email\": \"mido@x.com\",\n    \"password\": \"pass1234\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      }
+    ]
+  },
+  {
+    "_id": "551bc436-f729-4856-8083-0bc8623d1f26",
+    "colId": "43f2c4e2-e968-47ce-883c-1fface5d901f",
+    "containerId": "",
+    "name": "Login",
+    "url": "http://localhost:3000/api/v1/auth/login/",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-03-02T21:01:32.790Z",
+    "modified": "2023-03-02T21:03:08.893Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{    \n    \"email\": \"ahmed@x.com\",\n    \"password\": \"pass1234\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "01beb803-f267-4976-838d-7ea293c43d14",
+    "colId": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "containerId": "",
+    "name": "Get All Users Checks",
+    "url": "http://localhost:3000/api/v1/checks/",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-03-02T21:02:24.539Z",
+    "modified": "2023-03-02T21:03:00.473Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAxMGU5NjJkZDgxY2RiYWE2NDIxMjQiLCJpYXQiOjE2Nzc3OTA5MTh9.E6TNXgAyfb6KXu6SsT2xF7ag2m2YZSc554FHtT9NluE"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "87fedbad-f73b-48fd-9929-11fbffadaaf3",
+    "colId": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "containerId": "",
+    "name": "Get Specific User Checks",
+    "url": "http://localhost:3000/api/v1/checks/user/64010e962dd81cdbaa642124",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-03-02T21:03:54.415Z",
+    "modified": "2023-03-02T21:48:00.999Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAxMGU5NjJkZDgxY2RiYWE2NDIxMjQiLCJpYXQiOjE2Nzc3OTA5MTh9.E6TNXgAyfb6KXu6SsT2xF7ag2m2YZSc554FHtT9NluE"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.checks[0].userId",
+        "action": "equal",
+        "value": "64010e962dd81cdbaa642124"
+      }
+    ]
+  },
+  {
+    "_id": "3a6b1eca-96a1-4129-8be5-66e71e50780e",
+    "colId": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "containerId": "",
+    "name": "Create a new Check To Delete",
+    "url": "http://localhost:3000/api/v1/checks/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-03-02T21:05:26.830Z",
+    "modified": "2023-03-02T22:19:37.417Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Example Check To del 1\",\n  \"url\": \"https://www.google.com\",\n  \"protocol\": \"https\",\n  \"path\": \"/\",\n  \"port\": 443,\n  \"webhook\": \"https://www.example.com/webhook\",\n  \"timeout\": 10,\n  \"interval\": 30,\n  \"threshold\": 1,\n  \"authentication\": {\n    \"username\": \"exampleuser\",\n    \"password\": \"examplepass\"\n  },\n  \"assert\": {\n    \"statusCode\": 200\n  },\n  \"tags\": [\"example\"],\n  \"ignoreSSL\": false\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAxMWY0NTI4YjNiNzc2NDQ0NGJhMTMiLCJpYXQiOjE2Nzc3OTUxNDF9.916y3QmkOKJ9j_i2KZm3JVQ_t08qfVFSIejRCnpQKkw"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "201"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.check.userId",
+        "action": "equal",
+        "value": "64011f4528b3b7764444ba13"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.check.url",
+        "action": "equal",
+        "value": "https://www.google.com"
+      }
+    ]
+  },
+  {
+    "_id": "353dd54a-36fc-4120-b438-168473f9b9ab",
+    "colId": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "containerId": "",
+    "name": "Get Check by ID",
+    "url": "http://localhost:3000/api/v1/checks/64010fd4a929b88003f4e9b5",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2023-03-02T21:46:26.761Z",
+    "modified": "2023-03-02T21:54:00.145Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAxMGU5NjJkZDgxY2RiYWE2NDIxMjQiLCJpYXQiOjE2Nzc3OTA5MTh9.E6TNXgAyfb6KXu6SsT2xF7ag2m2YZSc554FHtT9NluE"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.check._id",
+        "action": "equal",
+        "value": "64010fd4a929b88003f4e9b5"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.check.userId",
+        "action": "equal",
+        "value": "64010e962dd81cdbaa642124"
+      }
+    ]
+  },
+  {
+    "_id": "be3a56df-6195-4891-b439-37c3b3ca74b3",
+    "colId": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "containerId": "",
+    "name": "Update Check by ID",
+    "url": "http://localhost:3000/api/v1/checks/64010fd4a929b88003f4e9b5",
+    "method": "PUT",
+    "sortNum": 70000,
+    "created": "2023-03-02T21:47:07.295Z",
+    "modified": "2023-03-02T22:11:32.891Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"authentication\": {\n      \"username\": \"user\",\n      \"password\": \"pass\"\n    },\n    \"name\": \"Updated Check - 2 - User Ahmed\",\n    \"url\": \"https://www.google.com\",\n    \"path\": \"/\",\n    \"port\": 443,\n    \"webhook\": \"https://www.example.com/webhook\",\n    \"timeout\": 10,\n    \"interval\": 30,\n    \"threshold\": 1,\n    \"httpHeaders\": [],\n    \"tags\": [\n      \"example\"\n    ],\n    \"ignoreSSL\": false,\n    \"__v\": 0\n  \n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAxMGU5NjJkZDgxY2RiYWE2NDIxMjQiLCJpYXQiOjE2Nzc3OTA5MTh9.E6TNXgAyfb6KXu6SsT2xF7ag2m2YZSc554FHtT9NluE"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "204"
+      }
+    ]
+  },
+  {
+    "_id": "0761f0b2-4cd7-43e3-9fa1-d2511f8acea6",
+    "colId": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "containerId": "",
+    "name": "Delete Check by ID",
+    "url": "http://localhost:3000/api/v1/checks/64011f6228b3b7764444ba16",
+    "method": "DELETE",
+    "sortNum": 80000,
+    "created": "2023-03-02T21:47:22.391Z",
+    "modified": "2023-03-02T22:21:33.264Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAxMWY0NTI4YjNiNzc2NDQ0NGJhMTMiLCJpYXQiOjE2Nzc3OTUxNDF9.916y3QmkOKJ9j_i2KZm3JVQ_t08qfVFSIejRCnpQKkw"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "204"
+      }
+    ]
+  },
+  {
+    "_id": "b30f6c98-5e14-45de-a793-c85148824f64",
+    "colId": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "containerId": "",
+    "name": "Delete all Checks",
+    "url": "http://localhost:3000/api/v1/checks/",
+    "method": "DELETE",
+    "sortNum": 90000,
+    "created": "2023-03-02T21:47:48.488Z",
+    "modified": "2023-03-02T22:17:05.983Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAxMWY0NTI4YjNiNzc2NDQ0NGJhMTMiLCJpYXQiOjE2Nzc3OTUxNDF9.916y3QmkOKJ9j_i2KZm3JVQ_t08qfVFSIejRCnpQKkw"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "cc055e0d-9124-444d-bac8-773eb893caf6",
+    "colId": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "containerId": "",
+    "name": "Get Check by ID [Unauthorized]",
+    "url": "http://localhost:3000/api/v1/checks/64010a7b25cb481ac9ba4543",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-03-02T21:55:28.226Z",
+    "modified": "2023-03-02T21:56:47.143Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAxMGU5NjJkZDgxY2RiYWE2NDIxMjQiLCJpYXQiOjE2Nzc3OTA5MTh9.E6TNXgAyfb6KXu6SsT2xF7ag2m2YZSc554FHtT9NluE"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "401"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.error",
+        "action": "contains",
+        "value": "Unauth"
+      }
+    ]
+  },
+  {
+    "_id": "a4539450-1510-48e1-a6c0-87f4a6cca9f5",
+    "colId": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "containerId": "",
+    "name": "Get Deleted Check By ID",
+    "url": "http://localhost:3000/api/v1/checks/6401200f28b3b7764444ba20",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-03-02T22:13:57.144Z",
+    "modified": "2023-03-02T22:15:58.797Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAxMWY0NTI4YjNiNzc2NDQ0NGJhMTMiLCJpYXQiOjE2Nzc3OTUxNDF9.916y3QmkOKJ9j_i2KZm3JVQ_t08qfVFSIejRCnpQKkw"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "404"
+      }
+    ]
+  },
+  {
+    "_id": "97424d37-bd91-49b3-a05f-b264f6f67049",
+    "colId": "3aa866c1-cb22-42fd-835a-425ca00f87c1",
+    "containerId": "",
+    "name": "Create a new Check",
+    "url": "http://localhost:3000/api/v1/checks/",
+    "method": "POST",
+    "sortNum": 130000,
+    "created": "2023-03-02T22:17:49.613Z",
+    "modified": "2023-03-02T22:19:18.245Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Newly Created URL Check\",\n  \"url\": \"https://www.google.com\",\n  \"protocol\": \"https\",\n  \"path\": \"/\",\n  \"port\": 443,\n  \"webhook\": \"https://www.example.com/webhook\",\n  \"timeout\": 10,\n  \"interval\": 30,\n  \"threshold\": 1,\n  \"authentication\": {\n    \"username\": \"exampleuser\",\n    \"password\": \"examplepass\"\n  },\n  \"assert\": {\n    \"statusCode\": 200\n  },\n  \"tags\": [\"example\"],\n  \"ignoreSSL\": false\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAxMGU5NjJkZDgxY2RiYWE2NDIxMjQiLCJpYXQiOjE2Nzc3OTA5MTh9.E6TNXgAyfb6KXu6SsT2xF7ag2m2YZSc554FHtT9NluE"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "201"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.check.userId",
+        "action": "equal",
+        "value": "64010e962dd81cdbaa642124"
+      }
+    ]
+  }
+]
