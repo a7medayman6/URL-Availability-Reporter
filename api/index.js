@@ -1,8 +1,9 @@
 const express = require('express');
-const colors = require('colors')
-const morgan = require('morgan')
+const colors = require('colors');
+const morgan = require('morgan');
 
-const db = require('./config/db')
+const db = require('./config/db');
+const Cron = require('./services/cron');
 
 require('dotenv').config();
 
@@ -31,5 +32,9 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => 
 {    
-    console.log(`[LOG | index] Server Started at ${PORT}`)
+    console.log(`[Log | index] Server Started at ${PORT}`);
+    console.log(`[Log | index] Starting Cron Jobs ...`);
+
+    new Cron().createJobsForExistinChecks();
+    
 })

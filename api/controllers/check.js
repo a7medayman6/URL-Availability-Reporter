@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Check = require('../models/check');
 const Authenticate = require('../middleware/authenticate');
-
+const Cron = require('../services/cron')
 
 const getAllChecks = async (req, res) => 
 {
@@ -66,8 +66,8 @@ const createNewCheck = async (req, res) =>
             tags,
             ignoreSSL,
         });
-    
         await newCheck.save();
+        await new Cron().createJob(newCheck);
         res.status(201).json({check: newCheck});
     } 
     catch (err) 
