@@ -57,6 +57,11 @@ class Cron
         let downTime = checkStatus.up ? report.downtime : report.downtime + check.interval;
         let upTime = checkStatus.up ? report.uptime + check.interval : report.uptime;
         let totalTime = report.totaltime + check.interval;
+        let upHistory = report.history;
+        let downHistory = report.history;
+
+        upHistory.unshift(`[${Date.now()}] Successfull Request - Type: GET, Status: ${checkStatus.status}, Response Time: ${checkStatus.time}.`);
+        downHistory.unshift(`[${Date.now()}] Failed Request - Type: GET, Status: ${checkStatus.status}, Response Time: ${checkStatus.time}.`)
         
         try
         {
@@ -73,9 +78,7 @@ class Cron
                     uptime: upTime, 
                     totaltime: report.totaltime + check.interval,
                     outages: checkStatus.up ? report.outages : report.outages + 1, 
-                    history: checkStatus.up ? 
-                    `Successfull Request - Type: GET, Status: ${checkStatus.status}, Response Time: ${checkStatus.time}.` : 
-                    `Failed Request - Type: GET, Status: ${checkStatus.status}, Response Time: ${checkStatus.time}.`
+                    history: checkStatus.up ? upHistory : downHistory,
                 })
                 .clone()
                 .then((res) => 
